@@ -1,0 +1,69 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/ticket_manager_backend",
+  "authentication": {
+    "secret": "f4494ce3b838ad54f51049249e240332d7fd73f45dbf0600b78b62f5cf6ba7c6965e4ad4e2506fe78099fd6ae90411a623183d109c3966bd15e359a4ac2e01c00c61757d63013bc526aeaa04a8fd471ddf99c5daac49b9ef5f306e72b5dd33cb1a5131acc1bf369b6a0de4b35d4d5204bc784b3066b8f5ee44f96f666e4e4ad05c71879f17cd767a4131515932de82479015b2d6fecc501a67c6150264fedab2f768adc7e934f1db409e79a17ca541fc3c151cb4dbf4af56820758a25bfa06a428abbd7183021ab7fed0d1252f741f140fa1c7c8494516a5dd65d531eb714ed1ba488d34aa30d0ca937a5c55f18fd784bc2cc0fe17e79dfd0184a2fface90acb",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  }
+}
