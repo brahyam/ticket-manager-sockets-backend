@@ -6,12 +6,12 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const tickets = new Schema({
-    key: {type: String, required: true},
+    key: {type: String},
     product: {type: Schema.Types.ObjectId, required: true},
     summary: {type: String, required: true},
     status: {type: String, required: true},
     priority: {type: String},
-    type: {type: String},
+    type: {type: String, required: true},
     description: {type: String},
     resolution: {type: String},
     createdAt: {type: Date, default: Date.now},

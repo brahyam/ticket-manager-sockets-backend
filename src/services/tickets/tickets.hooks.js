@@ -1,11 +1,11 @@
-
+const populateKey = require('../../hooks/populate-key');
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [populateKey()],
     update: [],
     patch: [],
     remove: []
